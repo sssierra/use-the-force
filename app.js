@@ -34,6 +34,8 @@ peopleReq.send();
 
 function planetRend()
 {
+    var data = JSON.parse(this.responseText);
+    
     for(var i = 0; i < 11; i++)
     {
         
@@ -53,6 +55,7 @@ function filmsRend()
 {
     for(var i = 0; i < 11; i++)
     {
+        var data = JSON.parse(this.responseText);
         
         var films = document.createElement("ul");
         films.innerHTML = data.results[i].name;
@@ -70,5 +73,5 @@ function filmsRend()
 
 var filmsReq = new XMLHttpRequest();
 filmsReq.addEventListener("load", filmsRend);
-filmsReq.open("GET", "https://swapi.co/api/films");
+filmsReq.open("GET", "https://swapi.co/api/films/");
 filmsReq.send();
